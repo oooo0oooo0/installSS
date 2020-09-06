@@ -12,9 +12,11 @@ echo 'generate shadowsocks.json'
 rm -f /etc/shadowsocks.json
 echo 'input your IP'
 read IP
+echo 'input SS port'
+read PORT
 echo 'input SS password'
 read PWD
-echo "{\"server\":\"$IP\",\"port_password\":{\"1083\":\"$PWD\"},\"timeout\":300,\"method\":\"aes-256-cfb\"}" >> /etc/shadowsocks.json
+echo "{\"server\":\"$IP\",\"port_password\":{\"$PORT\":\"$PWD\"},\"timeout\":300,\"method\":\"aes-256-cfb\"}" >> /etc/shadowsocks.json
 
 echo 'set firewall'
 firewall-cmd --permanent --zone=public --add-port=1083/tcp
