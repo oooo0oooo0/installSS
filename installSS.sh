@@ -19,7 +19,7 @@ read PWD
 echo "{\"server\":\"$IP\",\"port_password\":{\"$PORT\":\"$PWD\"},\"timeout\":300,\"method\":\"aes-256-cfb\"}" >> /etc/shadowsocks.json
 
 echo 'set firewall'
-firewall-cmd --permanent --zone=public --add-port=1083/tcp
+firewall-cmd --permanent --zone=public --add-port=$PORT/tcp
 firewall-cmd --reload
 
 echo 'start ss'
